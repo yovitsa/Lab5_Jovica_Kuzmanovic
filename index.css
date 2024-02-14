@@ -44,7 +44,9 @@
         On screens wider than 800px, the <p> element inside the div must additionally have no top margin
 
 */
-
+html, body{
+    display: grid;
+}
 @media screen and (min-width: 800px)
 {
    
@@ -54,12 +56,7 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    header > div:first-child{
-        height: max-content;
-        display: grid;
-        grid-template-rows:max-content max-content ;
-        grid-template-columns: auto ;
-    }
+ 
     header > div:nth-child(2){
         display: grid;
         grid-template-rows: auto;
@@ -68,5 +65,62 @@
     }
 }
 
-/* 
-The <div> inside that div, containing two paragraphs with the text "CSS Flexbox is a one-dimensional...", and "CSS Grid is a two-dimensional..." must (on screens with a minimum width of 800px) also be a grid with an 'auto' number of rows and two columns of 1fr. Additionally it must have a gap between the columns of width 2em */
+
+@media screen and (min-width:800px){
+
+    #flexbox > p {
+        display: flex;
+        flex-direction: column;
+   }
+   
+   #canvas:nth-child(n) {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   
+   }
+   
+   #flexbox > h2{
+    font-size: 6em;
+   }
+    
+}
+
+
+@media screen and (min-width: 800px)
+{
+   #grid {
+    display: grid;
+    grid-template-rows: auto repeat(4, 250px) ;
+    grid-template-columns:  repeat(3, 1fr);
+    
+   }
+   
+   #grid > h2{
+    display: grid;
+    grid-column: 2 / -1;
+    text-align: right;
+    font-size: 6em;
+   }
+   p:first-of-type {
+       display: grid;
+       grid-column: 1 / span 2;
+       
+   }
+   #grid > div{
+    display: grid;
+    grid-column: 2 / span 2;
+    grid-row:  3 / span 3;
+   }
+} 
+/*  NOTE: All of the styles noted below must *only* be applied on screens with a minimum width of 800px
+
+        The <section> element with id 'grid' must be a grid with 5 rows (the first having height 'auto', the remaining four having height 250px) and three columns of 1fr
+
+        All direct children of the section must have 1em of padding on all sides
+
+        The <h2> element inside the section must span three columns, have its text aligned right, and have font size 6em
+
+        The first <p> element inside the section must span two columns
+
+        The <div> inside the section must start at column two and span two columns, start at row three and span three columns  */
