@@ -7,7 +7,7 @@
 
     <header> element:
 
-        The <header> element must (on screens with a minimum width of 800px) be a grid with an 'auto' number of rows and two columns of 1fr
+        The <header> element must (on screens with a minimum width of 800px) be a grid with an 'auto' number of rows and two columns of 1frgit 
 
         The <div> which is the first child of the <header> must also (on screens with a minimum width of 800px) be a grid, with two rows set of 'max-content' height and an auto number of columns
 
@@ -44,3 +44,29 @@
         On screens wider than 800px, the <p> element inside the div must additionally have no top margin
 
 */
+
+@media screen and (min-width: 800px)
+{
+   
+    header { 
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    header > div:first-child{
+        height: max-content;
+        display: grid;
+        grid-template-rows:max-content max-content ;
+        grid-template-columns: auto ;
+    }
+    header > div:nth-child(2){
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr ;
+        column-gap: 2em;
+    }
+}
+
+/* 
+The <div> inside that div, containing two paragraphs with the text "CSS Flexbox is a one-dimensional...", and "CSS Grid is a two-dimensional..." must (on screens with a minimum width of 800px) also be a grid with an 'auto' number of rows and two columns of 1fr. Additionally it must have a gap between the columns of width 2em */
