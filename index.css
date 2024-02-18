@@ -130,19 +130,24 @@ footer div{
 
   footer div{
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         padding: 4em;
         justify-content: space-between;
 
   }
 
-  a > div > img {
-    flex-direction: column;
-  }
 
- a >div > p {
-    flex-direction: row-reverse;
-  }
+
+
 }
 
+a > div > img {
+    order: 1;
+    
+  }
 
+ a > div > p {
+     
+     order: 2;
+   
+  } 
